@@ -2,7 +2,7 @@ package lab04;
 
 import java.util.Scanner;
 
-public class Questao03 {
+public class Repeticoes6 {
     public static void main(String[] args) {
         System.out.println("Escolha Uma Opção:");
 

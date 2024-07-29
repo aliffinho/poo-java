@@ -1,57 +1,31 @@
 package lab04;
 
-import java.util.Arrays;
-import java.util.List;
-
 import java.util.Scanner;
 
-public class MaiorNumero {
-
+public class Repeticoes7 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite a quantidade de números que serao lidos: ");
+        int qntd = sc.nextInt();
 
-        // Solicita ao usuário a quantidade de números a serem lidos
-        System.out.print("Digite a quantidade de números a serem lidos: ");
-        int quantidade;
-        try {
-            quantidade = Integer.parseInt(scanner.nextLine());
-            if (quantidade <= 0) {
-                System.out.println("A quantidade deve ser um número positivo.");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Entrada inválida. Por favor, insira um número inteiro.");
-            return;
-        }
+        int maior = 0; 
+        int contagem = 0;
 
-        // Inicializa variáveis para armazenar o maior número e a contagem
-        double maiorNumero = Double.NEGATIVE_INFINITY;
-        int contagemMaior = 0;
-
-        // Lê os números e processa
-        for (int i = 1; i <= quantidade; i++) {
-            System.out.print("Digite o número " + i + ": ");
-            double numero;
-            try {
-                numero = Double.parseDouble(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida. Por favor, insira um número válido.");
-                i--; // Decrementa o índice para garantir que o usuário insira um número válido
-                continue;
-            }
-
-            if (numero > maiorNumero) {
-                maiorNumero = numero;
-                contagemMaior = 1; // Reinicia a contagem para o novo maior número
-            } else if (numero == maiorNumero) {
-                contagemMaior++;
+        for (int i = 0; i < qntd; i++) {
+            System.out.print("Digite o número : ");
+            int numero = sc.nextInt();
+            
+            if (numero > maior) {
+                maior = numero;
+                contagem = 1; 
+            } else if (numero == maior) {
+                contagem++; 
             }
         }
 
-        // Exibe o resultado
-        System.out.println("O maior número é: " + maiorNumero);
-        System.out.println("O maior número foi lido " + contagemMaior + " vezes.");
-
-        scanner.close();
+        System.out.println("O maior número é " + maior);
+        System.out.println("Quantidade de vezes que o maior número foi lido: " + contagem);
+        
+        sc.close();
     }
 }
