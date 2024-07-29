@@ -1,26 +1,23 @@
-public class  Repeticoes3{
+package lab04;
 
-    // Função para calcular a quantidade de divisores de um número
-    public static int countDivisors(int number) {
-        int count = 0;
-        // Itera até a raiz quadrada do número
-        for (int i = 1; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                // Se i é um divisor, então number / i também é um divisor
-                if (number / i == i) {
-                    count++; // Se divisores são iguais, conta apenas uma vez
-                } else {
-                    count += 2; // Conta ambos divisores i e number / i
-                }
+import java.util.Scanner;
+
+public class Repeticoes {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite o número: ");
+        int numero = sc.nextInt();
+
+        int contagem = 0;
+
+        for (int i = 1; i <= numero; i++) { 
+            if (numero % i == 0) {
+                contagem++;
             }
         }
-        return count;
-    }
 
-    public static void main(String[] args) {
-        // Testa a função com um exemplo
-        int number = 36; // Exemplo de número
-        int divisorCount = countDivisors(number);
-        System.out.println("A quantidade de divisores de " + number + " é " + divisorCount);
+        System.out.println("O número pode ser dividido por " + contagem + " números");
+        
+        sc.close();
     }
 }
