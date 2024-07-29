@@ -1,5 +1,4 @@
-package lab04;
-public class  Repeticoes4{
+public class r {
 
     // Função para calcular a quantidade de divisores de um número
     public static int countDivisors(int number) {

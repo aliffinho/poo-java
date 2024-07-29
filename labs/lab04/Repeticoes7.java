@@ -3,21 +3,55 @@ package lab04;
 import java.util.Arrays;
 import java.util.List;
 
-public class Repeticoes6 {
-    // java lab04/Repeticoes6.java
+import java.util.Scanner;
+
+public class MaiorNumero {
+
     public static void main(String[] args) {
-        /**
-         * break: O comando break é usado para sair imediatamente do loop,
-         * independentemente de a condição do loop ainda ser verdadeira ou não. Ele é
-         * usado para interromper a execução do loop antes que a condição normal de
-         * término seja alcançada.
-         */
-        for (int i = 0; i < 5; i++) {
-            System.out.println(i);
-            if (i == 3) {
-                break; // Interrompe o loop quando i alcança o valor 3
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita ao usuário a quantidade de números a serem lidos
+        System.out.print("Digite a quantidade de números a serem lidos: ");
+        int quantidade;
+        try {
+            quantidade = Integer.parseInt(scanner.nextLine());
+            if (quantidade <= 0) {
+                System.out.println("A quantidade deve ser um número positivo.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida. Por favor, insira um número inteiro.");
+            return;
+        }
+
+        // Inicializa variáveis para armazenar o maior número e a contagem
+        double maiorNumero = Double.NEGATIVE_INFINITY;
+        int contagemMaior = 0;
+
+        // Lê os números e processa
+        for (int i = 1; i <= quantidade; i++) {
+            System.out.print("Digite o número " + i + ": ");
+            double numero;
+            try {
+                numero = Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, insira um número válido.");
+                i--; // Decrementa o índice para garantir que o usuário insira um número válido
+                continue;
+            }
+
+            if (numero > maiorNumero) {
+                maiorNumero = numero;
+                contagemMaior = 1; // Reinicia a contagem para o novo maior número
+            } else if (numero == maiorNumero) {
+                contagemMaior++;
             }
         }
 
+        // Exibe o resultado
+        System.out.println("O maior número é: " + maiorNumero);
+        System.out.println("O maior número foi lido " + contagemMaior + " vezes.");
+
+        scanner.close();
     }
 }

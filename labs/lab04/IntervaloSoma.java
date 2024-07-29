@@ -5,7 +5,7 @@ import java.util.List;
 
 import java.util.Scanner;
 
-public class Repeticoes5 {
+public class I {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
